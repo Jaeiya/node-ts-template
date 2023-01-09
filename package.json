@@ -1,0 +1,26 @@
+{
+  "name": "node-ts-template",
+  "version": "1.0.0",
+  "description": "Default project description",
+  "type": "module",
+  "main": "bin/main.js",
+  "bin": {
+    "cmd-name": "./bin/main.js"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "Jaeiya",
+  "license": "MIT",
+  "devDependencies": {
+    "@types/node": "^18.11.18",
+    "@types/source-map-support": "^0.5.6",
+    "@typescript-eslint/eslint-plugin": "^5.48.0",
+    "@typescript-eslint/parser": "^5.48.0",
+    "eslint": "^8.31.0",
+    "eslint-config-prettier": "^8.6.0",
+    "prettier": "2.8.1",
+    "source-map-support": "^0.5.21"
+  }
+}
