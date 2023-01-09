@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 import { install } from 'source-map-support';
 
-// Allow stack traces to use typescript source files
+// Set stack traces to use typescript source files
 install();
 
 function throwError() {
