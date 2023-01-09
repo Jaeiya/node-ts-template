@@ -2,7 +2,7 @@
 
 This is a TypeScript project for NodeJS, with sane defaults for code style and linting. Just clone and go!
 
-There are a few defaults that should be changed however, like package `name`, `cmd-name`, and `author`. You can find those in the [package.json](/package.json). Depending on your project, you may also want to change the `license` property as well. By default, this project is [MIT](/LICENSE.md) licensed.
+There are a few defaults that should be changed however, like package `name`, `cmd-name`, and `author`. You can find those in the [package.json](/package.json). Depending on your project, you may also want to change the `license` property as well. By default, this project is [MIT](/LICENSE) licensed.
 
 ## Commit Syntax
 
