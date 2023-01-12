@@ -24,6 +24,7 @@ Too much flexibility can be a bad thing, so I've created a pre-defined folder st
 `npm i`
 
 **Important!!**
+
 After installation, make sure you create or execute a TypeScript build task on the [tsconfig.json](/tsconfig.json) file. The `./bin` directory needs to be populated before any of the following commands will work.
 
 VSCODE users can simply execute the `Run Build Task` command (or by using the corresponding keyboard shortcut) and it should automatically popup with an option to build or watch the `tsconfig` file. The default keybinding is `Ctrl+Shift+B`.
