@@ -6,16 +6,20 @@ There are a few defaults that should be changed however, like package `name`, `c
 
 ## Commit Syntax
 
-You may or may not like the syntax guidelines outlined in the [Commit Syntax](/docs/commit_syntax.md) Doc file. These guidelines are specific to my own projects, but you're free to use if you find them useful.
+You may or may not like the syntax guidelines outlined in the [Commit Syntax](/docs/commit_syntax.md) Doc file. These guidelines are specific to my own projects, but you're free to use it if you find them useful.
 
 ### Install
 
 `npm i`
 
-### Execute
+### Execute production code
 
 `node .`
 
-### Test Typescript Source Stack Trace
+### Run in dev mode
 
-`node . throw`
+`npm run dev`
+
+### Test typescript source map support
+
+`npm run dev throw`
