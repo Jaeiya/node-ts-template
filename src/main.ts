@@ -9,9 +9,11 @@ if (process.env.NODE_ENV == 'development') {
 
 const [, , arg] = process.argv;
 
-if (arg) {
-  if (arg == 'throw') {
-    throwThis('This should produce a typescript source file stack trace');
+if (arg && arg == 'throw') {
+  if (process.env.NODE_ENV == 'development') {
+    throwThis('This should produce a TypeScript file stack trace');
+  } else {
+    throwThis('This should produce a JavaScript file stack trace');
   }
 }
 
