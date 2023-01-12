@@ -1,18 +1,17 @@
 #!/usr/bin/env node
-import { install } from 'source-map-support';
+import { throwThis } from './lib/utils.js';
 
 // Set stack traces to use typescript source files
-install();
-
-function throwError() {
-  throw Error('hello world');
+if (process.env.NODE_ENV == 'development') {
+  const smp = await import('source-map-support');
+  smp.default.install();
 }
 
 const [, , arg] = process.argv;
 
 if (arg) {
   if (arg == 'throw') {
-    throwError();
+    throwThis('This should produce a typescript source file stack trace');
   }
 }
 
