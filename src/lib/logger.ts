@@ -10,7 +10,21 @@ const _consoleColors = {
   /** Bright Green */
   bgn: '\u001B[92m',
   /** Yellow */
-  yw: '\u001B[93m',
+  yw: '\u001B[33m',
+  /** Bright Yellow */
+  byw: '\u001B[93m',
+  /** Blue */
+  be: '\u001B[34m',
+  /** Bright Blue */
+  bbe: '\u001B[94m',
+  /** Magenta */
+  ma: '\u001B[35m',
+  /** Bright Magenta */
+  bma: '\u001B[95m',
+  /** Cyan */
+  cn: '\u001B[36m',
+  /** Bright Cyan */
+  bcn: '\u001B[96m',
   /** Bright White */
   bwt: '\u001B[97m',
   /** Clear */
