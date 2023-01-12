@@ -33,7 +33,7 @@ const _consoleColors = {
 const cc = _consoleColors;
 
 export class Logger {
-  static consoleColors = _consoleColors;
+  static readonly consoleColors = _consoleColors;
 
   static info(msg: string) {
     log('info', msg, 'dgn');
