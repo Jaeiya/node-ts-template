@@ -13,8 +13,8 @@ You may or may not like the syntax guidelines outlined in the [Commit Syntax](/d
 Too much flexibility can be a bad thing, so I've created a pre-defined folder structure that I think works very well for most projects:
 
 - **/** _ROOT DIR_ should contain all configuration files
-- **/src** should contain all source code
-- **/src/lib** should contain all source code that contributes to `main.ts`
+- **/src** should contain [lib](/src/lib) directory and [main.ts](/src/main.ts) entry point
+- **/src/lib** should contain all source code that contributes to `main.ts` entry point
 - **/bin** should contain all compiled source and assets - _the dist directory_
 
 ## Get Started
