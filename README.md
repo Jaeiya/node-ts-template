@@ -17,6 +17,10 @@ Too much flexibility can be a bad thing, so I've created a pre-defined folder st
 - **/src/lib** should contain all source code that contributes to `main.ts` entry point
 - **/bin** should contain all compiled source and assets - _the dist directory_
 
+## Default Logger
+
+A lot of my side projects use some variation of a simple logger, so I thought I would roll my own **very** low-profile [Logger](/src/lib/logger.ts) with sane defaults. It is also easily extendable. It has `0` dependencies and should meet most basic text-based console logging needs.
+
 ## Get Started
 
 ### Install
