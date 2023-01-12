@@ -6,15 +6,22 @@ There are a few defaults that should be changed however, like package `name`, `c
 
 ## Commit Syntax
 
-You may or may not like the syntax guidelines outlined in the [Commit Syntax](/docs/commit_syntax.md) Doc file. These guidelines are specific to my own projects, but you're free to use it if you find them useful.
+You may or may not like the syntax guidelines outlined in the [Commit Syntax](/docs/commit_syntax.md) Doc file. These guidelines are specific to my own projects, but you're free to adopt whatever you deem appropriate for your own project.
+
+## Opinionated Folder Structure
+
+Too much flexibility can be a bad thing, so I've created a pre-defined folder structure that I think works very well for most projects:
+
+- **/** _ROOT DIR_ should contain all configuration files
+- **/src** should contain all source code
+- **/src/lib** should contain all source code that contributes to `main.ts`
+- **/bin** should contain all compiled source and assets - _the dist directory_
+
+## Get Started
 
 ### Install
 
 `npm i`
-
-### Execute production code
-
-`node .`
 
 ### Run in dev mode
 
@@ -23,3 +30,15 @@ You may or may not like the syntax guidelines outlined in the [Commit Syntax](/d
 ### Test typescript source map support
 
 `npm run dev throw`
+
+### Run in production mode
+
+`node . <args>`
+
+### Install Globally
+
+`npm -g i .`
+
+### Run using global command
+
+`cmd-name <args>`
