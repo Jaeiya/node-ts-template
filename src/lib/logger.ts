@@ -1,4 +1,4 @@
-const maxTagLength = 10;
+const _maxTagLength = 10;
 
 const _consoleColors = {
   /** Red */
@@ -30,7 +30,7 @@ const _consoleColors = {
   /** Clear */
   x: '\u001B[0m',
 };
-const cc = _consoleColors;
+const _cc = _consoleColors;
 
 export class Logger {
   static readonly consoleColors = _consoleColors;
@@ -43,21 +43,21 @@ export class Logger {
     log('error', msg, 'rd');
   }
 
-  static print(color: keyof typeof cc, tag: string, msg: string) {
+  static print(color: keyof typeof _cc, tag: string, msg: string) {
     log(tag, msg, color);
   }
 }
 
-function log(tagName: string, msg: string, color: keyof typeof cc) {
-  console.log(`${cc[color]}${toTag(tagName)}${cc.x}`, msg);
+function log(tagName: string, msg: string, color: keyof typeof _cc) {
+  console.log(`${_cc[color]}${toTag(tagName)}${_cc.x}`, msg);
 }
 
 function toTag(tagName: string) {
-  if (tagName.length > maxTagLength) {
+  if (tagName.length > _maxTagLength) {
     throw Error(`Tag longer than maxTagLength: [${tagName}]`);
   }
   const specialCharLength = 3; // [, ], :
   const tagLength = tagName.length + specialCharLength;
-  const offsetLength = maxTagLength - tagLength;
+  const offsetLength = _maxTagLength - tagLength;
   return `${' '.repeat(offsetLength)}[${tagName.toUpperCase()}]:`;
 }
