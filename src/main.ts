@@ -2,6 +2,9 @@
 import { Logger } from './lib/logger.js';
 import { isDev, throwThis } from './lib/utils.js';
 
+// Add leading line for aesthetic reasons
+console.log('');
+
 // Set stack traces to use typescript source files
 if (isDev()) {
   const smp = await import('source-map-support');
