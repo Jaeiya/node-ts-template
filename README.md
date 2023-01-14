@@ -10,7 +10,7 @@ You may or may not like the syntax guidelines outlined in the [Commit Syntax](/d
 
 ## Code Style Guidelines
 
-ESLint takes care of 99% of the code style requirements, but there are some things that I enforce for my own projects. The [code_style](/docs/code_style.md)is a supplement to existing ESLint defaults. Feel free to ignore or adopt at your leisure.
+ESLint takes care of 99% of the code style requirements, but there are some things that I enforce for my own projects. The [code_style](/docs/code_style.md) is a supplement to existing ESLint defaults. Feel free to ignore or adopt at your leisure.
 
 ## Opinionated Folder Structure
 
