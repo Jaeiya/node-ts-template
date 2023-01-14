@@ -8,6 +8,10 @@ There are a few defaults that should be changed however, like package `name`, `c
 
 You may or may not like the syntax guidelines outlined in the [Commit Syntax](/docs/commit_syntax.md) Doc file. These guidelines are specific to my own projects, but you're free to adopt whatever you deem appropriate for your own project.
 
+## Code Style Guidelines
+
+ESLint takes care of 99% of the code style requirements, but there are some things that I enforce for my own projects. The [code_style](/docs/code_style.md)is a supplement to existing ESLint defaults. Feel free to ignore or adopt at your leisure.
+
 ## Opinionated Folder Structure
 
 Too much flexibility can be a bad thing, so I've created a pre-defined folder structure that I think works very well for most projects:
