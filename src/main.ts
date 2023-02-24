@@ -22,4 +22,4 @@ if (arg && arg == 'throw') {
   }
 }
 
-Logger.print('yw', 'test', 'Hello World!!');
+Logger.print('y', 'test', 'Hello World!!');
