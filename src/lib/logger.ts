@@ -1,3 +1,5 @@
+type HexColor = string;
+
 const _maxTagLength = 10;
 
 const _consoleColors = {
@@ -59,6 +61,17 @@ export class Logger {
   static print(color: keyof typeof _cc, tag: string, msg: string) {
     log(tag, msg, color);
   }
+
+  static addCustomColor(name: string, color: HexColor) {
+    const [r, g, b] = toRGBFromHex(color);
+    if (name.length > 3) {
+      throw Error('color name must be between 1 and 3 characters long');
+    }
+    if (_colorMap.has(name)) {
+      throw Error(`color name "${name}" already exists`);
+    }
+    _colorMap.set(name, `\u001B[38;2;${r};${g};${b}m`);
+  }
 }
 
 function log(tagName: string, msg: string, color: keyof typeof _cc) {
@@ -76,7 +89,7 @@ function toTag(tagName: string) {
 }
 
 function colorStr(str: string) {
-  if (!str.match(/;[a-z]{1,2};/g)) return str;
+  if (!str.match(/;[a-z]{1,3};/g)) return str;
 
   let coloredStr = str;
   for (const [code, color] of _colorMap) {
@@ -87,4 +100,13 @@ function colorStr(str: string) {
   }
 
   return coloredStr;
+}
+
+function toRGBFromHex(hex: string) {
+  if (!hex.match(/^[0-9a-f]{6}|[0-9a-f]{3}$/gi)) {
+    throw Error('invalid hex color');
+  }
+  const fullHex = hex.length > 3 ? hex : [...hex].map((c) => c + c).join('');
+  const intFromHex = parseInt(fullHex, 16);
+  return [(intFromHex >> 16) & 0xff, (intFromHex >> 8) & 0xff, intFromHex & 0xff];
 }
