@@ -75,7 +75,7 @@ export class Logger {
 }
 
 function log(tagName: string, msg: string, color: keyof typeof _cc) {
-  console.log(`${_cc[color]}${toTag(tagName)}${_cc.x}`, msg);
+  console.log(`${_cc[color]}${toTag(tagName)}${_cc.x}`, colorStr(msg));
 }
 
 function toTag(tagName: string) {
