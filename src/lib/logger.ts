@@ -33,8 +33,12 @@ const _consoleColors = {
   c: '\u001B[36m',
   /** Bright Cyan */
   bc: '\u001B[96m',
-  /** Clear */
-  x: '\u001B[0m',
+  /** Default Color */
+  x: '\u001B[39m',
+  /** Default Background Color */
+  xbg: '\u001B[49m',
+  /** Reset All */
+  xx: '\u001B[0m',
 };
 const _cc = _consoleColors;
 
