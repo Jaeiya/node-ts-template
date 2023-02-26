@@ -112,7 +112,9 @@ function colorStr(str: string) {
 }
 
 function toRGBFromHex(hex: string) {
-  if (!hex.match(/^[0-9a-f]{6}|[0-9a-f]{3}$/gi)) {
+  // Match hex codes: FF00FF or FFF case insensitive
+  const hexMatcher = /^[0-9a-f]{6}|[0-9a-f]{3}$/gi;
+  if (!hexMatcher.test(hex)) {
     throw Error('invalid hex color');
   }
   const fullHex = hex.length > 3 ? hex : [...hex].map((c) => c + c).join('');
