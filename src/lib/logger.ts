@@ -1,4 +1,5 @@
 type HexColor = string;
+type ColorCode = keyof typeof _consoleColors;
 
 const _maxTagLength = 10;
 
@@ -60,6 +61,10 @@ export class Logger {
 
   static error(msg: string) {
     log('error', msg, 'r');
+  }
+
+  static getLogStr(color: ColorCode, tag: string, msg: string) {
+    return colorStr(`;${color};${toTag(tag)} ;x;${msg}`);
   }
 
   static print(color: keyof typeof _cc, tag: string, msg: string) {
