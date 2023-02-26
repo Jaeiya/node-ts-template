@@ -6,6 +6,8 @@ import { testGlobalLog } from './lib/utils.js';
 // Add leading line for aesthetic reasons
 console.log('');
 
+global._con = ConsoleLogger;
+
 //
 // UNCOMMENT THE FOLLOWING DURING DEV:
 //
@@ -13,7 +15,6 @@ console.log('');
 // smp.default.install();
 // ConsoleLogger.info('TypeScript source map support installed');
 
-global._con = ConsoleLogger;
 
 _con.print('y', 'test', 'Hello World!!');
 _con.addCustomColor('p', 'FF83DD');
