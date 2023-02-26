@@ -52,7 +52,7 @@ const _colorMap = (function () {
   return map;
 })();
 
-export class Logger {
+export class ConsoleLogger {
   static readonly consoleColors = _consoleColors;
 
   static info(msg: string) {
@@ -122,7 +122,6 @@ function colorStr(str: string) {
       coloredStr = coloredStr.replaceAll(colorCode, color);
     }
   }
-
   return coloredStr;
 }
 

@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-import { Logger } from './lib/logger.js';
+import { ConsoleLogger } from './lib/logger.js';
 import { isDev, throwThis } from './lib/utils.js';
 
 // Add leading line for aesthetic reasons
@@ -22,4 +22,5 @@ if (arg && arg == 'throw') {
   }
 }
 
-Logger.print('y', 'test', 'Hello World!!');
+const _con = ConsoleLogger;
+_con.print('y', 'test', 'Hello World!!');
