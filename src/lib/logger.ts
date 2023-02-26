@@ -41,12 +41,11 @@ const _consoleColors = {
   /** Reset All */
   xx: '\u001B[0m',
 };
-const _cc = _consoleColors;
 
 const _colorMap = (function () {
   const map = new Map();
   for (const key in _consoleColors) {
-    const k = key as keyof typeof _consoleColors;
+    const k = key as ColorCode;
     map.set(k, _consoleColors[k]);
   }
   return map;
@@ -67,7 +66,7 @@ export class ConsoleLogger {
     return colorStr(`;${color};${toTag(tag)} ;x;${msg}`);
   }
 
-  static print(color: keyof typeof _cc, tag: string, msg: string) {
+  static print(color: ColorCode, tag: string, msg: string) {
     log(tag, msg, color);
   }
 
@@ -98,7 +97,7 @@ export class ConsoleLogger {
   }
 }
 
-function log(tagName: string, msg: string, color: keyof typeof _cc) {
+function log(tagName: string, msg: string, color: ColorCode) {
   console.log(colorStr(`;${color};${toTag(tagName)};x; ${msg}`));
 }
 
