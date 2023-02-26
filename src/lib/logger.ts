@@ -1,7 +1,7 @@
 type HexColor = string;
 type ColorCode = keyof typeof _consoleColors;
 
-const _maxTagLength = 10;
+let _maxTagLength = 10;
 let _showColor = true;
 
 const _consoleColors = {
@@ -57,6 +57,10 @@ export class ConsoleLogger {
 
     static set showColor(val: boolean) {
         _showColor = val;
+    }
+
+    static set maxTagLength(val: number) {
+        _maxTagLength = val;
     }
 
     static info(msg: string) {
