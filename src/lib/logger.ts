@@ -2,6 +2,7 @@ type HexColor = string;
 type ColorCode = keyof typeof _consoleColors;
 
 const _maxTagLength = 10;
+let _showColor = true;
 
 const _consoleColors = {
     /** Black */
@@ -53,6 +54,10 @@ const _colorCodeMap = (function () {
 
 export class ConsoleLogger {
     static readonly consoleColors = _consoleColors;
+
+    static set showColor(val: boolean) {
+        _showColor = val;
+    }
 
     static info(msg: string) {
         log('info', msg, 'g');
@@ -133,7 +138,7 @@ function colorStr(str: string) {
     for (const [code, color] of _colorCodeMap) {
         const colorCode = `;${code};`;
         if (str.includes(colorCode)) {
-            coloredStr = coloredStr.replaceAll(colorCode, color);
+            coloredStr = coloredStr.replaceAll(colorCode, _showColor ? color : '');
         }
     }
 
