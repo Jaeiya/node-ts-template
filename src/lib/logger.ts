@@ -81,6 +81,21 @@ export class Logger {
     }
     _colorMap.set(name, `\u001B[38;2;${r};${g};${b}m`);
   }
+
+  static debug(...args: any[]) {
+    let location = '';
+    const stack = Error('').stack;
+    if (stack) {
+      const stackLines = stack.split('\n').filter((line) => line.includes('file:///'));
+      stackLines.shift(); // remove logger execution file
+      location = stackLines[0];
+    }
+    console.log('\n');
+    this.print('b', 'debug', ';br;###################################');
+    console.log(colorStr(';x;\n'), ...args);
+    console.log(colorStr(`\n;bk;${location}\n`));
+    console.log('');
+  }
 }
 
 function log(tagName: string, msg: string, color: keyof typeof _cc) {
