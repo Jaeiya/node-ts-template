@@ -6,27 +6,27 @@ const _hideCursorChar = '\u001B[?25l';
 const _showCursorChar = '\u001B[?25h';
 
 export function createSpinner(text: string) {
-  let interval: NodeJS.Timer;
+    let interval: NodeJS.Timer;
 
-  function start() {
-    if (!text.includes('@spin')) {
-      throw Error('missing "@spin" placeholder');
+    function start() {
+        if (!text.includes('@spin')) {
+            throw Error('missing "@spin" placeholder');
+        }
+        let framePos = 0;
+        writeSpinnerFrame(framePos++, text);
+        interval = setInterval(() => {
+            framePos = writeSpinnerFrame(framePos++, text);
+        }, 90);
     }
-    let framePos = 0;
-    writeSpinnerFrame(framePos++, text);
-    interval = setInterval(() => {
-      framePos = writeSpinnerFrame(framePos++, text);
-    }, 90);
-  }
 
-  return {
-    start,
-    stop: () => {
-      clearInterval(interval);
-      clearStdout();
-      stdout.write(_showCursorChar);
-    },
-  };
+    return {
+        start,
+        stop: () => {
+            clearInterval(interval);
+            clearStdout();
+            stdout.write(_showCursorChar);
+        },
+    };
 }
 
 /**
@@ -34,14 +34,14 @@ export function createSpinner(text: string) {
  * and returns the next frame position.
  */
 function writeSpinnerFrame(framePos: number, msg: string) {
-  clearStdout();
-  if (framePos == _dotFrames.length) framePos = 0;
-  const str = msg.replaceAll('@spin', _dotFrames[framePos]);
-  stdout.write(`${str}${_hideCursorChar}`);
-  return ++framePos;
+    clearStdout();
+    if (framePos == _dotFrames.length) framePos = 0;
+    const str = msg.replaceAll('@spin', _dotFrames[framePos]);
+    stdout.write(`${str}${_hideCursorChar}`);
+    return ++framePos;
 }
 
 function clearStdout() {
-  stdout.clearLine(0);
-  stdout.cursorTo(0);
+    stdout.clearLine(0);
+    stdout.cursorTo(0);
 }
