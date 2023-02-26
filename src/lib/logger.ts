@@ -89,10 +89,19 @@ export class ConsoleLogger {
             stackLines.shift(); // remove logger execution file
             location = stackLines[0];
         }
+        const offender = location.trim().split(' ')[1];
+        // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
+        const fileWithLineNumber = location.split('/').at(-1)!;
+        const [fileName, lineNumber] = fileWithLineNumber.split(':');
         console.log('\n');
-        this.print('b', 'debug', ';br;###################################');
-        console.log(colorStr(';x;\n'), ...args);
-        console.log(colorStr(`\n;bk;${location}\n`));
+        this.print('b', 'debug', `;br;${'#'.repeat(65)}\n`);
+        console.log(colorStr(';x;\n'), ...args, '\n\n');
+        this.print(
+            'y',
+            'log',
+            `;g;Exec ;m;by ;g;${offender}() ;m;in file ;g;${fileName} ;m;at line ;g;${lineNumber}`
+        );
+        this.print('b', 'debug', `;br;${'#'.repeat(65)}\n`);
         console.log('');
     }
 }
