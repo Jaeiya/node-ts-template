@@ -1,7 +1,8 @@
 type HexColor = string;
 type ColorCode = keyof typeof _consoleColors;
 
-let _maxTagLength = 10;
+const _tagOffsetLength = 3; // [, ], :
+let _maxTagLength = 10 - _tagOffsetLength;
 let _showColor = true;
 
 const _consoleColors = {
@@ -123,9 +124,7 @@ function toTag(tagName: string) {
     if (tagName.length > _maxTagLength) {
         throw Error(`Tag longer than maxTagLength: [${tagName}]`);
     }
-    const specialCharLength = 3; // [, ], :
-    const tagLength = tagName.length + specialCharLength;
-    const offsetLength = _maxTagLength - tagLength;
+    const offsetLength = _maxTagLength - tagName.length;
     return `${' '.repeat(offsetLength)}[${tagName.toUpperCase()}]:`;
 }
 
