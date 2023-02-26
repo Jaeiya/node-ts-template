@@ -12,6 +12,6 @@ console.log('');
 // ConsoleLogger.info('TypeScript source map support installed');
 
 const [, , arg] = process.argv;
+global._con = ConsoleLogger;
 
-const _con = ConsoleLogger;
 _con.print('y', 'test', 'Hello World!!');
