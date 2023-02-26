@@ -8,7 +8,7 @@ const _showCursorChar = '\u001B[?25h';
 export function createSpinner(text: string) {
     let interval: NodeJS.Timer;
 
-    function start() {
+    function start(fps: number) {
         if (!text.includes('@spin')) {
             throw Error('missing "@spin" placeholder');
         }
@@ -16,7 +16,7 @@ export function createSpinner(text: string) {
         writeSpinnerFrame(framePos++, text);
         interval = setInterval(() => {
             framePos = writeSpinnerFrame(framePos++, text);
-        }, 90);
+        }, Math.ceil(1000 / fps));
     }
 
     return {

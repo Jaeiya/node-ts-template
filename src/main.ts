@@ -28,6 +28,6 @@ const spinner = createSpinner(
     _con.toString('by', 'spinner', ';l;@spin ;o;Some Orange Text ;l;@spin')
 );
 
-spinner.start();
+spinner.start(11);
 
 setTimeout(spinner.stop, 4000);
