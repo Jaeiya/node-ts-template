@@ -5,12 +5,12 @@ import { isDev, throwThis } from './lib/utils.js';
 // Add leading line for aesthetic reasons
 console.log('');
 
-// Set stack traces to use typescript source files
-if (isDev()) {
-  const smp = await import('source-map-support');
-  smp.default.install();
-  Logger.info('TypeScript source map support installed');
-}
+//
+// UNCOMMENT THE FOLLOWING DURING DEV:
+//
+// const smp = await import('source-map-support');
+// smp.default.install();
+// ConsoleLogger.info('TypeScript source map support installed');
 
 const [, , arg] = process.argv;
 
