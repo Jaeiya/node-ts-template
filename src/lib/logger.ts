@@ -42,8 +42,8 @@ const _consoleColors = {
   xx: '\u001B[0m',
 };
 
-const _colorMap = (function () {
-  const map = new Map();
+const _colorCodeMap = (function () {
+  const map = new Map<string, string>();
   for (const key in _consoleColors) {
     const k = key as ColorCode;
     map.set(k, _consoleColors[k]);
@@ -70,15 +70,15 @@ export class ConsoleLogger {
     log(tag, msg, color);
   }
 
-  static addCustomColor(name: string, color: HexColor) {
+  static addCustomColor(code: string, color: HexColor) {
     const [r, g, b] = toRGBFromHex(color);
-    if (name.length > 3) {
-      throw Error('color name must be between 1 and 3 characters long');
+    if (code.length > 3) {
+      throw Error('color code must be between 1 and 3 characters long');
     }
-    if (_colorMap.has(name)) {
-      throw Error(`color name "${name}" already exists`);
+    if (_colorCodeMap.has(code)) {
+      throw Error(`color code "${code}" already exists`);
     }
-    _colorMap.set(name, `\u001B[38;2;${r};${g};${b}m`);
+    _colorCodeMap.set(code, `\u001B[38;2;${r};${g};${b}m`);
   }
 
   static debug(...args: any[]) {
@@ -112,15 +112,24 @@ function toTag(tagName: string) {
 }
 
 function colorStr(str: string) {
-  if (!str.match(/;[a-z]{1,3};/g)) return str;
+  const colorCodes = str.match(/;([a-z]){1,3};/g);
+  if (!colorCodes) return str;
+
+  const invalidCodes = colorCodes.filter(
+    (c) => !_colorCodeMap.has(c.replaceAll(';', ''))
+  );
+  if (invalidCodes.length) {
+    throw Error(`invalid color code(s) "${invalidCodes}"`);
+  }
 
   let coloredStr = str;
-  for (const [code, color] of _colorMap) {
+  for (const [code, color] of _colorCodeMap) {
     const colorCode = `;${code};`;
     if (str.includes(colorCode)) {
       coloredStr = coloredStr.replaceAll(colorCode, color);
     }
   }
+
   return coloredStr;
 }
 
