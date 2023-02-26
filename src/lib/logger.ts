@@ -79,7 +79,7 @@ export class ConsoleLogger {
         return colorStr(`;${color};${toTag(tag)} ;x;${msg}`);
     }
 
-    static print(color: ColorCode, tag: string, msg: string) {
+    static print(color: string, tag: string, msg: string) {
         log(tag, msg, color);
     }
 
@@ -130,7 +130,7 @@ export class ConsoleLogger {
     }
 }
 
-function log(tagName: string, msg: string, color: ColorCode) {
+function log(tagName: string, msg: string, color: string) {
     console.log(colorStr(`;${color};${toTag(tagName)};x; ${msg}`));
 }
 
