@@ -1,5 +1,4 @@
 #!/usr/bin/env node
-import { createSpinner } from './lib/cli-spinner.js';
 import { ConsoleLogger } from './lib/logger.js';
 import { testGlobalLog } from './lib/utils.js';
 
@@ -24,10 +23,5 @@ _con.addCustomColor('o', 'FFA800');
 _con.info('info message with ;p;custom pink ;x;text');
 _con.error('error message with ;by;bright yellow ;x;text');
 // testGlobalLog();
-const spinner = createSpinner(
-    _con.toString('by', 'spinner', ';l;@spin ;o;Some Orange Text ;l;@spin')
-);
-
-spinner.start(11);
-
-setTimeout(spinner.stop, 4000);
+const clearLoading = _con.printLoading();
+setTimeout(clearLoading, 4000);
