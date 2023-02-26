@@ -62,7 +62,7 @@ export class ConsoleLogger {
     log('error', msg, 'r');
   }
 
-  static getLogStr(color: ColorCode, tag: string, msg: string) {
+  static toString(color: ColorCode, tag: string, msg: string) {
     return colorStr(`;${color};${toTag(tag)} ;x;${msg}`);
   }
 
