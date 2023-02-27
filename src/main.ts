@@ -25,5 +25,9 @@ console.log('');
 _con.chainInfo([';l;This', ';l;message', '', ';l;is', ';l;chained']);
 console.log('');
 // testGlobalLog();
+const response = await _con.prompt(';bw;Enter some text and hit enter: ;o;');
 const clearLoading = _con.printLoading();
-setTimeout(clearLoading, 4000);
+setTimeout(() => {
+    clearLoading();
+    _con.chainInfo(['', `You input: ;by;${response}`, '']);
+}, 4000);
