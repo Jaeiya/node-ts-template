@@ -1,3 +1,4 @@
+import readline from 'readline';
 import { createSpinner } from './cli-spinner.js';
 
 type HexColor = string;
@@ -89,6 +90,25 @@ export class ConsoleLogger {
 
     static print(color: string, tag: string, msg: string) {
         log(tag, msg, color);
+    }
+
+    static promptRaw(msg: string) {
+        return this.toString('m', 'prompt', msg);
+    }
+
+    static async prompt(query: string) {
+        const rl = readline.createInterface({
+            input: process.stdin,
+            output: process.stdout,
+        });
+
+        const answer = await new Promise<string>((rs) => {
+            // It's cleaner to have prompt spaced from prior logs
+            console.log('');
+            rl.question(this.promptRaw(query), rs);
+        });
+        rl.close();
+        return answer;
     }
 
     static addCustomColor(code: string, color: HexColor) {
