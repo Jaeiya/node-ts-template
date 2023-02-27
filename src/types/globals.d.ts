@@ -1,4 +1,4 @@
-import { ConsoleLogger } from '../lib/logger';
+import { ConsoleLogger } from '../lib/logger.js';
 
 declare global {
     // eslint-disable-next-line no-var
