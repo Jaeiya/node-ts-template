@@ -1,3 +1,3 @@
-export function testGlobalLog() {
-    _con.debug({ some: 'random', data: 'to use', for: 'testing' });
+export function testDebugLogging() {
+    _con.debug({ some: 'random', data: 'to use', for: 'demonstration' });
 }
