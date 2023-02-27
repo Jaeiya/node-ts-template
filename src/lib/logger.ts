@@ -75,6 +75,14 @@ export class ConsoleLogger {
         log('error', msg, 'r');
     }
 
+    static chainInfo(msgs: string[]) {
+        chainLogs(msgs, 'info');
+    }
+
+    static chainError(msgs: string[]) {
+        chainLogs(msgs, 'error');
+    }
+
     static toString(color: ColorCode, tag: string, msg: string) {
         return colorStr(`;${color};${toTag(tag)} ;x;${msg}`);
     }
@@ -128,6 +136,14 @@ export class ConsoleLogger {
         this.print('b', 'debug', `;br;${'#'.repeat(65)}\n`);
         console.log('');
     }
+}
+
+function chainLogs(logs: string[], type: 'error' | 'info') {
+    const print = type == 'info' ? ConsoleLogger.info : ConsoleLogger.error;
+    logs.forEach((log) => {
+        if (log) print(log);
+        else console.log('');
+    });
 }
 
 function log(tagName: string, msg: string, color: string) {
