@@ -14,12 +14,11 @@ global._con = ConsoleLogger;
 // smp.default.install();
 // ConsoleLogger.info('TypeScript source map support installed');
 
-
-_con.print('y', 'test', 'Hello World!!');
 _con.addCustomColor('p', 'FF83DD');
 _con.addCustomColor('rty', '2FD8A2');
 _con.addCustomColor('l', 'A2FF00');
 _con.addCustomColor('o', 'FFA800');
+_con.print('o', 'test', 'This has custom tag');
 _con.info('info message with ;p;custom pink ;x;text');
 _con.error('error message with ;by;bright yellow ;x;text');
 // testGlobalLog();
